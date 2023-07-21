@@ -10,3 +10,5 @@ packages/
 *.useroscache
 *.sln.docstates
 appsetting.json
+*.jfm
+*.mdl
