@@ -4,10 +4,13 @@ using System.Data;
 
 public partial class Default : MultitracksPage
 {
-    private object errorMessage;
-
+    protected string ArtistTitle { get; set; }
+    protected string Img { get; set; }
+    protected string HeroImg { get; set; }
+    protected string Bio { get; set; }
     protected void Page_Load(object sender, EventArgs e)
     {
+        //this will only run during intial page load and not during subsequent requests to server on user click
         if (!IsPostBack)
         {
             int artistID = 107;
@@ -18,8 +21,13 @@ public partial class Default : MultitracksPage
             {
                 sql.Parameters.Add("@artistID", artistID);
                 var data = sql.ExecuteStoredProcedureDT("GetArtistDetails");
-                artists.DataSource = data;
-                artists.DataBind();
+                if (data.Rows.Count > 0)
+                {
+                    ArtistTitle = data.Rows[0]["ArtistTitle"].ToString();
+                    Img = data.Rows[0]["Img"].ToString();
+                    HeroImg = data.Rows[0]["HeroImg"].ToString();
+                    Bio = data.Rows[0]["Bio"].ToString();
+                }
 
                 //artistItems.Visible = (data.Rows.Count > 0);
             }
@@ -43,8 +51,10 @@ public partial class Default : MultitracksPage
                 //MAY HAVE TO MAKE THIS DS AND NOT DT
                 var data = sql.ExecuteStoredProcedureDT("GetArtistDetails");
 
-                artists.DataSource = data;
-                artists.DataBind();
+                ArtistTitle = data.Rows[0]["ArtistTitle"].ToString();
+                Img = data.Rows[0]["Img"].ToString();
+                HeroImg = data.Rows[0]["HeroImg"].ToString();
+                Bio = data.Rows[0]["Bio"].ToString();
 
             }
             catch (Exception ex)

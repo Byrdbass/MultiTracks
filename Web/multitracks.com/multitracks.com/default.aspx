@@ -17,8 +17,6 @@
 		<form runat="server" id="artistItems">
 			<asp:TextBox runat="server" ID="txtArtistID" placeholder="Enter Artist ID"></asp:TextBox>
 			<asp:Button runat="server" ID="btnSubmit" Text="Submit" OnClick="btnSubmit_Click" />
-			<asp:Repeater runat="server" ID="artists">
-				<ItemTemplate>
 					<noscript>
 						<div>Javascript must be enabled for the correct page display</div>
 					</noscript>
@@ -30,30 +28,33 @@
 				<div class="details-banner">
 					<div class="details-banner--overlay"></div>
 					<div class="details-banner--hero">
-						<img class="details-banner--hero--img" src=<%#Eval("heroURL") %> 
-						srcset="src=<%#Eval("heroURL") %> 2x" alt=<%#Eval("ArtistTitle")%>>
+						<img class="details-banner--hero--img" src="<%= HeroImg %>" alt="<%= ArtistTitle %>" 
+							<!-- SHOULD I PUT THE SRCSET PROPERTY BACK?-->
 					</div>
 					<div class="details-banner--info">
 						<a href="#" class="details-banner--info--box">
 								<img class="details-banner--info--box--img"
-								 src=<%#Eval("imageURL") %>
-								 srcset="<%#Eval("imageURL") %> 2x"
-							     alt=<%#Eval("ArtistTitle")%>>
+								 src="<%= Img %>"
+									<!-- SHOULD I PUT THE SRCSET PROPERTY BACK?-->
+							     alt="<%= ArtistTitle%>">
 						</a>
-						<h1 class="details-banner--info--name"><a class="details-banner--info--name--link" href="#"><%#Eval("ArtistTitle")%></a></h1>
+						<h1 class="details-banner--info--name">
+							<a class="details-banner--info--name--link" href="#">
+								<%= ArtistTitle%>
+							</a>
+						</h1>
 					</div>
 				</div>
-
 				<nav class="discovery--nav">
 					<ul class="discovery--nav--list tab-filter--list u-no-scrollbar">
 						<li class="discovery--nav--list--item tab-filter--item is-active">
-							<a class="tab-filter" href="../artists/details.aspx">Overview</a>
+							<a class="tab-filter" href="./artists/details.aspx">Overview</a>
 						</li>
 						<li class="discovery--nav--list--item tab-filter--item">
-							<a class="tab-filter" href="../artists/songs/details.aspx">Songs</a>
+							<a class="tab-filter" href="./artists/songs/details.aspx">Songs</a>
 						</li>
 						<li class="discovery--nav--list--item tab-filter--item">
-							<a class="tab-filter" href="../artists/albums/details.aspx">Albums</a>
+							<a class="tab-filter" href="./artists/albums/details.aspx">Albums</a>
 						</li>
 					</ul> <!-- /.browse-header-filters -->
 				</nav>
@@ -114,7 +115,7 @@
 
 											<div class="song-list--item--right">
 
-												<a href="#" class="song-list--item--primary">Song Title</a>
+												<a href="#" class="song-list--item--primary"><%#Eval("SongTitle")%></a>
 												<a class="song-list--item--secondary">Album name</a>
 												<a class="song-list--item--secondary">145 BPM</a>
 												<a class="song-list--item--secondary">4/4</a>
@@ -265,9 +266,10 @@
 									</div><!-- /.discovery-section-header -->
 
 									<div class="artist-details--biography biography">
-										<p><%#Eval("biography") %> </p>
+										<p><%= Bio %> </p>
 										<!-- FIGURE OUT HOW TO REDUCE TEXT BY CERTAIN AMOUNT OF LINES -->
 										<a href="#">Read More...</a>
+
 									</div>
 								</section><!-- /.biography-section -->
 							</main><!-- /.discovery-section -->
@@ -278,8 +280,6 @@
 			
 
 			<a class="accessibility" href="#wrapper" tabindex="20">Back to top</a>
-					                    </ItemTemplate>
-              </asp:Repeater>
 		</form>
 	</body>
 </html>
