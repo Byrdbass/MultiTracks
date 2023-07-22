@@ -21,7 +21,7 @@ public partial class Default : MultitracksPage
                 artists.DataSource = data;
                 artists.DataBind();
 
-                artistItems.Visible = (data.Rows.Count > 0);
+                //artistItems.Visible = (data.Rows.Count > 0);
             }
             catch (Exception ex)
             {
