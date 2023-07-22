@@ -57,7 +57,10 @@
 						</li>
 						<li class="discovery--nav--list--item tab-filter--item">
 							<a class="tab-filter" href="./artists/albums/details.aspx">Albums</a>
-						</li>
+                        </li>
+                        <li class="discovery--nav--list--item tab-filter--item">
+                            <a class="tab-filter" href="../../../API/Contact.aspx">API</a>
+                        </li>
 					</ul> <!-- /.browse-header-filters -->
 				</nav>
 
@@ -185,7 +188,8 @@
 											<div class="ly-grid ly-grid-cranberries">
 
                                                 <% for (int i = 0; i < AlbumTitles.Count; i++)
-													{%>
+													{
+%>
                                                 <div class="media-item">
                                                     <a class="media-item--img--link" href="#" tabindex="0">
                                                         <img class="media-item--img" alt="<%=AlbumTitles[i] %>"
