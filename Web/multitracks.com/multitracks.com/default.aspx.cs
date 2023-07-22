@@ -31,9 +31,13 @@ public partial class Default : MultitracksPage
     {
 
         //this will only run during initial page load and not during subsequent requests to server on user click
-        if (!IsPostBack)
+        if (Session["artistID"] != null && int.TryParse(Session["artistID"].ToString(), out int artistID))
         {
-            FetchArtistDetails(107);
+            FetchArtistDetails(artistID);
+        }
+        else
+        {
+            FetchArtistDetails(5);
         }
     }
 
@@ -41,6 +45,7 @@ public partial class Default : MultitracksPage
     {
         if (int.TryParse(txtArtistID.Text, out int artistID))
         {
+            Session["artistID"] = artistID;
             FetchArtistDetails(artistID);
         }
         else
@@ -48,7 +53,6 @@ public partial class Default : MultitracksPage
             // Insert error message here for the user to see
         }
     }
-
     private void FetchArtistDetails(int artistID)
     {
         var sql = new SQL();

@@ -1,0 +1,7 @@
+﻿.song-titles {
+    display: none;
+}
+
+.show-titles .song-titles {
+    display: block;
+}
