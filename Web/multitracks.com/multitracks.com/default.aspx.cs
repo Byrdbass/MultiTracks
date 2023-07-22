@@ -12,16 +12,11 @@ public partial class Default : MultitracksPage
             //sql.Parameters.Add("@stepID", 1);
             var data = sql.ExecuteStoredProcedureDT("GetAssessmentSteps");
 
-            assessmentItems.DataSource = data;
-            assessmentItems.DataBind();
 
-            publishDB.Visible = false;
-            items.Visible = true;
         }
-        catch 
+        catch
         {
-            publishDB.Visible = true;
-            items.Visible = false;
+
         }
     }
 }
