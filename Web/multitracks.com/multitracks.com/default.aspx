@@ -14,7 +14,19 @@
 	<link media="all" rel="stylesheet" href="./css/index.css">
 </head>
 	<body class="premium standard u-fix-fancybox-iframe">
-		<form>
+		  <ul runat="server" id="artistItems">
+              <asp:Repeater runat="server" ID="artists">
+                  <ItemTemplate>
+                      <li><%#Eval("title") %></li>
+					  <li><%#Eval("biography") %></li>
+                      <img src=<%#Eval("imageURL") %> alt=<%#Eval("title")%> "photo" />
+					  <img src=<%#Eval("heroURL") %> alt=<%#Eval("title")%> "photo" class="details-banner--hero--img"/>
+                  </ItemTemplate>
+              </asp:Repeater>
+           </ul>
+		<form runat="server">
+					<asp:TextBox runat="server" ID="txtArtistID" placeholder="Enter Artist ID"></asp:TextBox>
+					<asp:Button runat="server" ID="btnSubmit" Text="Submit" OnClick="btnSubmit_Click" />
 			<noscript>
 				<div>Javascript must be enabled for the correct page display</div>
 			</noscript>

@@ -24,4 +24,5 @@ public partial class Default : MultitracksPage
             items.Visible = false;
         }
     }
+
 }
