@@ -8,63 +8,43 @@ public partial class Default : MultitracksPage
     protected string Img { get; set; }
     protected string HeroImg { get; set; }
     protected string Bio { get; set; }
+
     protected void Page_Load(object sender, EventArgs e)
     {
-        //this will only run during intial page load and not during subsequent requests to server on user click
+
+        //this will only run during initial page load and not during subsequent requests to server on user click
         if (!IsPostBack)
         {
-            int artistID = 107;
-
-            var sql = new SQL();
-
-            try
-            {
-                sql.Parameters.Add("@artistID", artistID);
-                var data = sql.ExecuteStoredProcedureDT("GetArtistDetails");
-                if (data.Rows.Count > 0)
-                {
-                    ArtistTitle = data.Rows[0]["ArtistTitle"].ToString();
-                    Img = data.Rows[0]["Img"].ToString();
-                    HeroImg = data.Rows[0]["HeroImg"].ToString();
-                    Bio = data.Rows[0]["Bio"].ToString();
-                }
-
-                //artistItems.Visible = (data.Rows.Count > 0);
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
+            FetchArtistDetails(107);
         }
     }
 
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
-        // Get the artistID entered by the user in the TextBox
         if (int.TryParse(txtArtistID.Text, out int artistID))
         {
-            var sql = new SQL();
-
-            try
-            {
-                sql.Parameters.Add("@artistID", artistID);
-                //MAY HAVE TO MAKE THIS DS AND NOT DT
-                var data = sql.ExecuteStoredProcedureDT("GetArtistDetails");
-
-                ArtistTitle = data.Rows[0]["ArtistTitle"].ToString();
-                Img = data.Rows[0]["Img"].ToString();
-                HeroImg = data.Rows[0]["HeroImg"].ToString();
-                Bio = data.Rows[0]["Bio"].ToString();
-
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
+            FetchArtistDetails(artistID);
         }
         else
         {
-            //insert error message here for user to see
+            // Insert error message here for the user to see
+        }
+    }
+
+    private void FetchArtistDetails(int artistID)
+    {
+        var sql = new SQL();
+        sql.Parameters.Add("@artistID", artistID);
+        var data = sql.ExecuteStoredProcedureDT("GetArtistDetails");
+
+        if (data.Rows.Count > 0)
+        {
+            ArtistTitle = data.Rows[0]["ArtistTitle"].ToString();
+            Img = data.Rows[0]["Img"].ToString();
+            HeroImg = data.Rows[0]["HeroImg"].ToString();
+            Bio = data.Rows[0]["Bio"].ToString();
+
+
         }
     }
 }
