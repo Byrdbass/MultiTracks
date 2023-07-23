@@ -84,20 +84,16 @@
 
 											<div class="ly-grid ly-grid-cranberries">
 
-                                                <% for (int i = 0; i < AlbumTitles.Count; i++)
-													{
-%>
+
+                                                <% foreach (var album in AlbumsHashSet)
+                                                    {
+                                                %>
                                                 <div class="media-item">
                                                     <a class="media-item--img--link" href="#" tabindex="0">
-                                                        <img class="media-item--img" alt="<%=AlbumTitles[i] %>"
-															src="<%=AlbumImages[i] %>">
+                                                        <img class="media-item--img" alt="<%= album.Title %>" src="<%= album.ImageUrl %>">
                                                         <span class="image-tag">Master</span>
                                                     </a>
-                                                    <a class="media-item--title" href="#" tabindex="0"><%=AlbumTitles[i] %></a>
-													<!-- NEED TO PARSE THE SUBTITLE - SPLIT FROM ALBUM TITLE WITH / OR ( 
-														<a class="media-item--subtitle" href="#" tabindex="0">Cory Asbury</a>
-														-->
-                                        
+                                                    <a class="media-item--title" href="#" tabindex="0"><%= album.Title %></a>
                                                 </div>
                                                 <% } %>
 											</div><!-- /.grid -->

@@ -59,7 +59,7 @@
 							<a class="tab-filter" href="./artists/albums/details.aspx">Albums</a>
                         </li>
                         <li class="discovery--nav--list--item tab-filter--item">
-                            <a class="tab-filter" href="../../../API/Contact.aspx">API</a>
+                            <a class="tab-filter" href="./api/multitracks.com/artist/add.aspx">Add an Artist</a>
                         </li>
 					</ul> <!-- /.browse-header-filters -->
 				</nav>
@@ -70,7 +70,7 @@
 								<section class="standard--holder">
 									<div class="discovery--section--header">
 										<h2>Top Songs</h2>
-										<a class="discovery--section--header--view-all" href="#">View All</a>
+										<a class="discovery--section--header--view-all" href="./artists/songs/details.aspx">View All</a>
                                     </div>
                                     <!-- /.discovery-select -->
 
@@ -180,29 +180,30 @@
 									<section class="standard--holder">
 										<div class="discovery--section--header">
 											<h2>Albums</h2>
-											<a class="discovery--section--header--view-all" href="/artists/default.aspx">View All</a>
+											<a class="discovery--section--header--view-all" href="./artists/albums/details.aspx">View All</a>
 										</div><!-- /.discovery-select -->
 
 										<div class="discovery--grid-holder">
 
 											<div class="ly-grid ly-grid-cranberries">
 
-                                                <% for (int i = 0; i < AlbumTitles.Count; i++)
-													{
-%>
+                                                <% foreach (var album in AlbumsHashSet)
+                                                    {
+                                                %>
                                                 <div class="media-item">
                                                     <a class="media-item--img--link" href="#" tabindex="0">
-                                                        <img class="media-item--img" alt="<%=AlbumTitles[i] %>"
-															src="<%=AlbumImages[i] %>">
+                                                        <img class="media-item--img" alt="<%= album.Title %>" src="<%= album.ImageUrl %>">
                                                         <span class="image-tag">Master</span>
                                                     </a>
-                                                    <a class="media-item--title" href="#" tabindex="0"><%=AlbumTitles[i] %></a>
-													<!-- NEED TO PARSE THE SUBTITLE - SPLIT FROM ALBUM TITLE WITH / OR ( 
+                                                    <a class="media-item--title" href="#" tabindex="0"><%= album.Title %></a>
+                                                </div>
+                                                <% } %>
+
+                                                <!-- NEED TO PARSE THE SUBTITLE - SPLIT FROM ALBUM TITLE WITH / OR ( 
 														<a class="media-item--subtitle" href="#" tabindex="0">Cory Asbury</a>
 														-->
                                         
                                                 </div>
-                                                <% } %>
 											</div><!-- /.grid -->
 										</div><!-- /.discovery-grid-holder -->
 									</section><!-- /.songs-section -->

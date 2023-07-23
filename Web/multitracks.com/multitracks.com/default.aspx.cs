@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
-
 public partial class Default : MultitracksPage
 {
     protected string ArtistTitle { get; set; }
@@ -24,6 +23,7 @@ public partial class Default : MultitracksPage
     protected List<bool> RehearsalMixes { get; set; }
     protected List<bool> Patches { get; set; }
     protected List<bool> ProPresenters { get; set; }
+    protected HashSet<Album> AlbumsHashSet { get; set; }
 
 
 
@@ -53,6 +53,47 @@ public partial class Default : MultitracksPage
             // Insert error message here for the user to see
         }
     }
+
+    public class Album : IEquatable<Album>
+    {
+        public string Title { get; set; }
+        public string ImageUrl { get; set; }
+
+        public bool Equals(Album other)
+        {
+            if (other == null) return false;
+            return Title == other.Title && ImageUrl == other.ImageUrl;
+        }
+
+        public override bool Equals(object obj)
+        {
+            return Equals(obj as Album);
+        }
+
+        public override int GetHashCode()
+        {
+            int hashTitle = Title == null ? 0 : Title.GetHashCode();
+            int hashImageUrl = ImageUrl == null ? 0 : ImageUrl.GetHashCode();
+            return hashTitle ^ hashImageUrl;
+        }
+    }
+
+    public class AlbumEqualityComparer : IEqualityComparer<Album>
+    {
+        public bool Equals(Album x, Album y)
+        {
+            if (x == null && y == null) return true;
+            if (x == null || y == null) return false;
+            return x.Equals(y);
+        }
+
+        public int GetHashCode(Album obj)
+        {
+            return obj.GetHashCode();
+        }
+    }
+
+
     private void FetchArtistDetails(int artistID)
     {
         var sql = new SQL();
@@ -71,6 +112,7 @@ public partial class Default : MultitracksPage
             AlbumTitles = new List<string>();
             AlbumImages = new List<string>();
             AlbumYears = new List<int>();
+            AlbumsHashSet = new HashSet<Album>(new AlbumEqualityComparer());
 
             SongIds = new List<int>();
             SongDates = new List<DateTime>();
@@ -108,6 +150,7 @@ public partial class Default : MultitracksPage
                 AlbumTitles.Add(albumTitle);
                 AlbumImages.Add(albumImage);
                 AlbumYears.Add(year);
+                AlbumsHashSet.Add(new Album { Title = albumTitle, ImageUrl = albumImage });
 
                 SongIds.Add(songId);
                 SongDates.Add(dateCreation);
