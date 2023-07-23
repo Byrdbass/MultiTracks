@@ -54,12 +54,6 @@ public partial class Details: MultitracksPage
         }
     }
 
-    protected void btnViewAll_Click(object sender, EventArgs e)
-    {
-
-        //panelSongTitles.Visible = !panelSongTitles.Visible;
-    }
-
     private void FetchArtistDetails(int artistID)
     {
         var sql = new SQL();
