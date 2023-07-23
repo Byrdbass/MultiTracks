@@ -18,7 +18,7 @@ namespace DataAccess
 
 		public int Timeout = 30;
 
-		private string connectionString = "Data Source=(localdb)\\ProjectModels;Initial Catalog=MultiTracksDB;Integrated Security=True;Connect Timeout=30;Encrypt=False";
+		private string connectionString = "Data Source=(localdb)\\ProjectModels;Initial Catalog=MultiTracksDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;";
 
 		public SQL(int timeout)
 			: this("admin")
