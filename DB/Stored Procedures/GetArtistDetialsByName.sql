@@ -2,7 +2,7 @@
     @artistName NVARCHAR(100)
 AS
 BEGIN
-    SELECT a.[title] AS ArtistTitle, a.[biography] AS Bio, a.[imageURL] AS Img, a.[heroURL] AS HeroImg,
+    SELECT a.[artistID] as ArtistID, a.[title] AS ArtistTitle, a.[biography] AS Bio, a.[imageURL] AS Img, a.[heroURL] AS HeroImg,
     al.[albumID], al.[title] AS AlbumTitle, al.[imageURL] AS AlbumImage, al.[year] AS AlbumYear,
     s.[songID] AS SongID, s.[dateCreation] AS SongDate, s.[title] AS SongTitle, s.[bpm] AS BPM, s.[timeSignature] AS TS
     , s.[multitracks] AS MT, s.[customMix] AS Mix,

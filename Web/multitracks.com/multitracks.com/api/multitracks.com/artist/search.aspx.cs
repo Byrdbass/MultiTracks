@@ -40,9 +40,15 @@ public partial class api_artist_search : System.Web.UI.Page
         sql.Parameters.Add("@artistName", "%" + artistName + "%");
         var data = sql.ExecuteStoredProcedureDT("GetArtistDetailsByName");
 
+        if (int.TryParse(data.Rows[0]["ArtistID"].ToString(), out int artistID))
+        {
+            // Store the artist ID in the session
+            Session["ArtistID"] = artistID;
+        }
             // Bind the DataTable to the GridView control to display the results
             gvArtistDetails.DataSource = data;
             gvArtistDetails.DataBind();
-        
+
+
     }
 }

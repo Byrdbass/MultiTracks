@@ -59,6 +59,12 @@
 							<a class="tab-filter" href="./artists/albums/details.aspx">Albums</a>
                         </li>
                         <li class="discovery--nav--list--item tab-filter--item">
+							<a class="tab-filter" href="./api/multitracks.com/artist/search.aspx">Search Artist</a>
+                        </li>
+                        <li class="discovery--nav--list--item tab-filter--item">
+							<a class="tab-filter" href="./api/multitracks.com/song/list.aspx">Songs By Page</a>
+                        </li>
+                        <li class="discovery--nav--list--item tab-filter--item">
                             <a class="tab-filter" href="./api/multitracks.com/artist/add.aspx">Add an Artist</a>
                         </li>
 					</ul> <!-- /.browse-header-filters -->
