@@ -48,7 +48,19 @@ public partial class api_song_list : System.Web.UI.Page
     private int CurrentPageNumber
     {
         get { return Session["CurrentPageNumber"] != null ? Convert.ToInt32(Session["CurrentPageNumber"]) : 1; }
-        set { Session["CurrentPageNumber"] = value; }
+        set
+        {
+            if (SongTitles.Count >= ItemsPerPage || value == 1)
+            {
+                // Only set the session value if there are enough songs or the page number is set to 1
+                Session["CurrentPageNumber"] = value;
+            }
+            else
+            {
+                // Clear the session value if there are not enough songs and the page number is not 1
+                Session.Remove("CurrentPageNumber");
+            }
+        }
     }
     protected void btnNext_Click(object sender, EventArgs e)
     {
