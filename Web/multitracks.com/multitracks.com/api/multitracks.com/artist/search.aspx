@@ -10,7 +10,8 @@
 	<meta charset="utf-8">
 	<title>MultiTracks.com</title>
 	<!-- include the site stylesheet -->
-	
+    <link rel="icon" href="https://mtracks.azureedge.net/public/images/icon/favicon/favicon-32x32.png" type="image/png">
+    <link rel="icon" href="https://mtracks.azureedge.net/public/images/icon/favicon/favicon-svg2.svg" type="image/svg+xml">
 	<link media="all" rel="stylesheet" href="../../../css/index.css">
 </head>
 <body>

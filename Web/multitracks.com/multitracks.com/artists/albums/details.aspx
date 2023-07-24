@@ -9,7 +9,8 @@
 	<meta charset="utf-8">
 	<title>MultiTracks.com</title>
 	<!-- include the site stylesheet -->
-	
+	<link rel="icon" href="https://mtracks.azureedge.net/public/images/icon/favicon/favicon-32x32.png" type="image/png">
+    <link rel="icon" href="https://mtracks.azureedge.net/public/images/icon/favicon/favicon-svg2.svg" type="image/svg+xml">
 	<link media="all" rel="stylesheet" href="../../css/index.css">
 
     <link href="./css/showAllSongs.css" rel="stylesheet" />
@@ -72,10 +73,6 @@
 							<main class="discovery--section">
 
 								<section class="standard--holder">
-									<div class="discovery--section--header">
-										<h2>Top Songs</h2>
-										<a class="discovery--section--header--view-all" href="#">View All</a>
-                                    </div>
                                     <!-- /.discovery-select -->
 
                                     <ul id="playlist" class="song-list mod-new mod-menu">

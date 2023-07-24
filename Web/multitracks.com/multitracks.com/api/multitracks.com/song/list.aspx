@@ -10,7 +10,8 @@
     <meta charset="utf-8">
     <title>MultiTracks.com</title>
     <!-- include the site stylesheet -->
-
+    <link rel="icon" href="https://mtracks.azureedge.net/public/images/icon/favicon/favicon-32x32.png" type="image/png">
+    <link rel="icon" href="https://mtracks.azureedge.net/public/images/icon/favicon/favicon-svg2.svg" type="image/svg+xml">
     <link media="all" rel="stylesheet" href="../../../css/index.css">
 </head>
 <body class="premium standard u-fix-fancybox-iframe">
@@ -67,11 +68,15 @@
                 <!-- /.browse-header-filters -->
             </nav>
 
-            <!-- Previous Button -->
-            <asp:Button ID="btnPrevious" runat="server" Text="Previous" OnClick="btnPrevious_Click" />
 
-            <!-- Next Button -->
-            <asp:Button ID="btnNext" runat="server" Text="Next" OnClick="btnNext_Click" />
+            <div class="tab-filter" 
+                style="display:flex ; justify-content: center; margin: 0vh 15vw ; cursor:default" >
+            <asp:Button ID="btnPrevious" runat="server" Text="Previous" OnClick="btnPrevious_Click"  
+                style="width: 200px ; border-radius: 9px ; color:#282828 ; cursor:pointer"/>
+            <asp:Button ID="btnNext" runat="server" Text="Next" OnClick="btnNext_Click" 
+                style="width: 200px ; border-radius: 9px; color:#282828 ; cursor:pointer" />
+            </div>
+
 
 
             <div class="discovery--container u-container">

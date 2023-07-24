@@ -10,7 +10,8 @@
 	<meta charset="utf-8">
 	<title>MultiTracks.com</title>
 	<!-- include the site stylesheet -->
-	
+	<link rel="icon" href="https://mtracks.azureedge.net/public/images/icon/favicon/favicon-32x32.png" type="image/png">
+    <link rel="icon" href="https://mtracks.azureedge.net/public/images/icon/favicon/favicon-svg2.svg" type="image/svg+xml">
 	<link media="all" rel="stylesheet" href="../../css/index.css">
 </head>
 	<body class="premium standard u-fix-fancybox-iframe">
@@ -123,38 +124,6 @@
                                     <!-- /.song-list -->
                                 </section>
                                 <!-- /.songs-section -->
-
-								<div class="discovery--space-saver">
-									<section class="standard--holder">
-										<div class="discovery--section--header">
-											<h2>Albums</h2>
-											<a class="discovery--section--header--view-all" href="/artists/default.aspx">View All</a>
-										</div><!-- /.discovery-select -->
-
-										<div class="discovery--grid-holder">
-
-											<div class="ly-grid ly-grid-cranberries">
-
-                                                <% for (int i = 0; i < AlbumTitles.Count; i++)
-													{
-%>
-                                                <div class="media-item">
-                                                    <a class="media-item--img--link" href="#" tabindex="0">
-                                                        <img class="media-item--img" alt="<%=AlbumTitles[i] %>"
-															src="<%=AlbumImages[i] %>">
-                                                        <span class="image-tag">Master</span>
-                                                    </a>
-                                                    <a class="media-item--title" href="#" tabindex="0"><%=AlbumTitles[i] %></a>
-													<!-- NEED TO PARSE THE SUBTITLE - SPLIT FROM ALBUM TITLE WITH / OR ( 
-														<a class="media-item--subtitle" href="#" tabindex="0">Cory Asbury</a>
-														-->
-                                        
-                                                </div>
-                                                <% } %>
-											</div><!-- /.grid -->
-										</div><!-- /.discovery-grid-holder -->
-									</section><!-- /.songs-section -->
-								</div>
 							</main><!-- /.discovery-section -->
 				</div><!-- /.standard-container -->
 			</div><!-- /.wrapper -->
