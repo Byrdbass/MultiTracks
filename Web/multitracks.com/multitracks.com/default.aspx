@@ -12,9 +12,6 @@
 	<!-- include the site stylesheet -->
 	
 	<link media="all" rel="stylesheet" href="./css/index.css">
-
-    <link href="./css/showAllSongs.css" rel="stylesheet" />
-    <script defer src="showAllSongs.js"></script>
 </head>
 	<body class="premium standard u-fix-fancybox-iframe">
 		<form runat="server" id="artistItems">
@@ -101,6 +98,8 @@
                                                 <div class="song-list--item--icon--holder">
                                                     <a href="#" class="song-list--item--icon--wrap" style="display: inline-block">
                                                         <svg class="song-list--item--icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="ds-tracks-sm">
+                                                            <a href="api/multitracks.com/song/list.aspx">api/multitracks.com/song/list.aspx</a>
+                                                            <a href="api/multitracks.com/song/list.aspx">api/multitracks.com/song/list.aspx</a>
                                                             <path fill-rule="evenodd" clip-rule="evenodd" d="M1.977 12c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10-10-4.477-10-10zm4.04 6.204a8.579 8.579 0 005.96 2.405c4.747 0 8.61-3.862 8.61-8.609 0-4.746-3.863-8.609-8.61-8.609a8.573 8.573 0 00-5.893 2.343h6.598a.708.708 0 110 1.415H4.87c-.29.423-.543.875-.754 1.348h11.213a.708.708 0 110 1.415H3.624c-.109.437-.184.888-.223 1.35h14.637a.708.708 0 110 1.414H3.396c.037.46.109.911.215 1.348h13.025a.708.708 0 010 1.416H4.087c.207.473.454.923.739 1.349h9.164a.708.708 0 110 1.415H6.017z" fill=""></path></svg>
                                                     </a>
                                                     <a href="#" class="song-list--item--icon--wrap" style="display: inline-block">

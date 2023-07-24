@@ -58,7 +58,7 @@
 						<li class="discovery--nav--list--item tab-filter--item">
 							<a class="tab-filter" href="../../api/multitracks.com/artist/search.aspx">Search Artist</a>
 						</li>
-						<li class="discovery--nav--list--item tab-filter--item is-active">
+						<li class="discovery--nav--list--item tab-filter--item">
 							<a class="tab-filter" href="../../api/multitracks.com/song/list.aspx">Songs By Page</a>
 						</li>
 						<li class="discovery--nav--list--item tab-filter--item">
