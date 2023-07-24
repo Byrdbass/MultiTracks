@@ -18,7 +18,7 @@
         <input type="text" id="txtSearchArtist" runat="server" placeholder="Enter Artist Name" />
         <asp:Button ID="btnSearch" runat="server" Text="Search" OnClick="btnSearch_Click" />
 
-        <asp:Label ID="lblMessage" runat="server" Visible="false" Text="There is no artist with that name"></asp:Label>
+        <asp:Label ID="lblMessage" runat="server" Visible="true" Text="Type in an artists name"></asp:Label>
 
         <div class="details-banner">
             <div class="details-banner--overlay"></div>
