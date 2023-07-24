@@ -169,6 +169,22 @@ public partial class api_song_list : System.Web.UI.Page
                 Patches = Patches.Skip(startIndex).Take(ItemsPerPage).ToList();
                 ProPresenters = ProPresenters.Skip(startIndex).Take(ItemsPerPage).ToList();
 
+            if(startIndex == 0)
+            {
+                btnPrevious.Visible = false;
+            }
+            else { btnPrevious.Visible = true; }
+            if(endIndex > SongTitles.Count+ItemsPerPage) {
+                btnNext.Visible = false;
+            }
+            else { btnNext.Visible = true; }
+            if(SongTitles.Count < ItemsPerPage && CurrentPageNumber == 1)
+            {
+                btnPrevious.Visible=false;
+                btnNext.Visible=false;
+                notEnoughSongs.Text = "The Artist has less than " + ItemsPerPage + " songs";
+                notEnoughSongs.Visible = true;
+            }
         }
     }
 }

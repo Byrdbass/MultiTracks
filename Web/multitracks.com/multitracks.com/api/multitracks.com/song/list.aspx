@@ -73,6 +73,7 @@
                 style="display:flex ; justify-content: center; margin: 0vh 15vw ; cursor:default" >
             <asp:Button ID="btnPrevious" runat="server" Text="Previous" OnClick="btnPrevious_Click"  
                 style="width: 200px ; border-radius: 9px ; color:#282828 ; cursor:pointer"/>
+                 <asp:Label ID="notEnoughSongs" runat="server" CssClass="current-page-number"></asp:Label>
             <asp:Button ID="btnNext" runat="server" Text="Next" OnClick="btnNext_Click" 
                 style="width: 200px ; border-radius: 9px; color:#282828 ; cursor:pointer" />
             </div>

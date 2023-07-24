@@ -43,14 +43,30 @@ public partial class Details: MultitracksPage
 
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
-        if (int.TryParse(txtArtistID.Text, out int artistID))
+        string inputArtistID = txtArtistID.Text.Trim();
+
+        if (!string.IsNullOrEmpty(inputArtistID) && int.TryParse(inputArtistID, out int artistID))
         {
+            var sql = new SQL();
+            sql.Parameters.Add("@artistID", artistID);
+            var data = sql.ExecuteStoredProcedureDT("GetArtistDetails");
+
+            if (data.Rows.Count == 0)
+            {
+                ErrorLabel.Text = "There is no Artist with that ID";
+                ErrorLabel.Visible = true;
+            }
+            else
+            {
             Session["artistID"] = artistID;
             FetchArtistDetails(artistID);
+
+            }
         }
         else
         {
-            // Insert error message here for the user to see
+            ErrorLabel.Text = "Please Enter an Id";
+            ErrorLabel.Visible = true;
         }
     }
 

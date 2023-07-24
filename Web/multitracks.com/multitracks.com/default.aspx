@@ -16,8 +16,6 @@
 </head>
 	<body class="premium standard u-fix-fancybox-iframe">
 		<form runat="server" id="artistItems">
-			<asp:TextBox runat="server" ID="txtArtistID" placeholder="Enter Artist ID"></asp:TextBox>
-			<asp:Button runat="server" ID="btnSubmit" Text="Submit" OnClick="btnSubmit_Click" />
 					<noscript>
 						<div>Javascript must be enabled for the correct page display</div>
 					</noscript>
@@ -45,6 +43,10 @@
 						</h1>
 					</div>
 				</div>
+				        <div style="display:flex ; justify-content:center ; align-items:center; margin-top: 20px">
+				                <asp:Label ID="ErrorLabel" runat="server" Visible="false"
+                    style="font-style: italic; font-weight: 900 ; text-align:center"></asp:Label>
+							</div>
 				<nav class="discovery--nav">
 					<ul class="discovery--nav--list tab-filter--list u-no-scrollbar">
 						<li class="discovery--nav--list--item tab-filter--item is-active">
@@ -67,6 +69,15 @@
                         </li>
 					</ul> <!-- /.browse-header-filters -->
 				</nav>
+                        <div class="row" style="display:flex ; justify-content:center ; align-items:center; margin-top: 20px">
+                            
+                			<asp:TextBox runat="server" ID="txtArtistID" placeholder="Enter Artist ID"
+                                style=" width: 15vw"
+                                ></asp:TextBox>
+			                <asp:Button runat="server" ID="btnSubmit" Text="Submit" OnClick="btnSubmit_Click" 
+                                   style="border-radius: 9px ; color:#43b1e6" CssClass="tab-filter"
+                />
+                        </div>
 
 				<div class="discovery--container u-container">
 							<main class="discovery--section">

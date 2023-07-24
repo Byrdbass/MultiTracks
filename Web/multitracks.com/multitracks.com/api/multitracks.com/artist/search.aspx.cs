@@ -30,18 +30,16 @@ public partial class api_artist_search : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
+        if (!IsPostBack)
+        {
         lblMessage.Visible = false;
-        
+
+        }
         if (!string.IsNullOrEmpty(Request.QueryString["artistName"]))
         {
             string artistName = Request.QueryString["artistName"];
             // Call the stored procedure and bind the data to the GridView control
             BindArtistDetails(artistName);
-        }
-        else
-        {
-            // Show the message label since there's no artist name provided
-            lblMessage.Visible = true;
         }
     }
 
@@ -49,9 +47,12 @@ public partial class api_artist_search : System.Web.UI.Page
     {
         // Get the artist name from the input field
         string artistName = txtSearchArtist.Value.Trim();
-
-        // Call the stored procedure and bind the data to the GridView control
-        BindArtistDetails(artistName);
+        if (string.IsNullOrEmpty(artistName))
+        {
+            lblMessage.Text = "Please enter an Artist Name";
+            lblMessage.Visible = true;
+        }
+        else BindArtistDetails(artistName);
     }
     private void BindArtistDetails(string artistName)
     {
@@ -73,7 +74,11 @@ public partial class api_artist_search : System.Web.UI.Page
             }
 
         }
-        else lblMessage.Visible = true;
+        else {
+            lblMessage.Text = "NO ARTIST FOUND WITH THAT NAME";
+            lblMessage.Visible = true; 
+        }
+
 
 
     }
@@ -188,6 +193,10 @@ public partial class api_artist_search : System.Web.UI.Page
                 ProPresenters.Add(proPresenter);
 
             }
+
+            headphonesPanel.Visible = false;
+            artistImages.Visible = true;
+            bioPanel.Visible = true;
 
         }
     }
